@@ -1,0 +1,11 @@
+docker run --name airbyte-postgres \
+  --network host \
+  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_DB=postgres \
+  -e PGPORT=3000 \
+  --health-cmd="pg_isready -U postgres -d postgres" \
+  --health-interval=2s \
+  --health-timeout=10s \
+  --health-retries=3 \
+  -d postgres:13
