@@ -205,6 +205,7 @@ services:
     container_name: airbyte-temporal
     restart: unless-stopped
     environment:
+      - BIND_ON_IP=127.0.0.1 # added manually
       - DB=postgresql
       - DB_PORT=${DATABASE_PORT}
       - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development.yaml
